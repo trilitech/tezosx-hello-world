@@ -31,10 +31,15 @@ export async function sendMessageViaCrac(message: string, useRawTransfer = false
     // Raw transfer: build the Michelson parameter by hand.
     // Required because the enshrined gateway contract has no script
     // exposed via the standard Tezos RPC (returns 404 on /entrypoints).
+    // Manual gas/storage/fee because the enshrined contract's script
+    // is not visible via the Tezos RPC, so estimation (simulation) fails.
     op = await Tezos.wallet
       .transfer({
         to: CRAC_GATEWAY,
         amount: 0,
+        fee: 30000,
+        gasLimit: 500000,
+        storageLimit: 5000,
         parameter: {
           entrypoint: "call",
           value: {
