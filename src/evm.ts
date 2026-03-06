@@ -9,8 +9,8 @@ export async function readMessage(): Promise<string> {
     throw new Error("MESSAGE_STORE_ADDRESS not set.");
   }
 
-  // message() selector = first 4 bytes of keccak256("message()")
-  const selector = keccak256(toUtf8Bytes("message()")).slice(0, 10);
+  // read() selector = first 4 bytes of keccak256("read()")
+  const selector = keccak256(toUtf8Bytes("read()")).slice(0, 10);
 
   const response = await fetch(EVM_RPC_URL, {
     method: "POST",

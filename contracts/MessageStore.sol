@@ -7,4 +7,8 @@ contract MessageStore {
     function store(string memory _msg) public payable {
         message = _msg;
     }
+
+    function read() public view returns (string memory) {
+        return message;
+    }
 }
