@@ -20,7 +20,8 @@
 set -euo pipefail
 
 # --- Configuration ---
-TEZLINK_RPC="https://demo.txpark.nomadic-labs.com/rpc/tezlink"
+PREFIX="${TXPARK_PREFIX:-demo}"
+TEZLINK_RPC="https://${PREFIX}.txpark.nomadic-labs.com/rpc/tezlink"
 GATEWAY="KT18oDJJKXMKhfE1bSuAPGp92pYcwVDiqsPw"
 # bootstrap1 seed key (note: lowercase 'i' in CiQ, not uppercase 'I')
 BOOTSTRAP_KEY="edsk3gUfUPyBSfrS9CCgmCiQsTCHGkviBDusMxDJstFtojtc1zcpsh"

@@ -8,7 +8,8 @@ import { InMemorySigner } from "@taquito/signer";
 import bs58check from "bs58check";
 import nacl from "tweetnacl";
 
-const TEZOS_RPC = "https://demo.txpark.nomadic-labs.com/rpc/tezlink";
+const PREFIX = process.env.TXPARK_PREFIX ?? "demo";
+const TEZOS_RPC = `https://${PREFIX}.txpark.nomadic-labs.com/rpc/tezlink`;
 const BOOTSTRAP1_SEED = "edsk3gUfUPyBSfrS9CCgmCIQsTCHGkviBDusMxDJstFtojtc1uo2KK7";
 
 // edsk2 prefix (seed): [0x0d, 0x0f, 0x3a, 0x07] (4 bytes)

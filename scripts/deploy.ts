@@ -17,7 +17,8 @@ import { fileURLToPath } from "url";
 import { ContractFactory, JsonRpcProvider, Wallet } from "ethers";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const RPC_URL = "https://demo.txpark.nomadic-labs.com/rpc";
+const PREFIX = process.env.TXPARK_PREFIX ?? "demo";
+const RPC_URL = `https://${PREFIX}.txpark.nomadic-labs.com/rpc`;
 
 async function main() {
   const privateKey = process.argv[2];
